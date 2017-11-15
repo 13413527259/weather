@@ -1,0 +1,4 @@
+﻿需要在隐藏目录下》 .git 》config 添加以下信息
+[user]
+    name = XXX(自己的名称)
+    email = XXXX(邮箱)
