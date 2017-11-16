@@ -2,21 +2,14 @@ package com.example.demo.bean;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 /**
  * 日报
  * 
  * @author 13413527259
  *
  */
-@Entity
 public class Daily {
 
-	@Id
-	@GeneratedValue
 	private Date date; // 日期
 	private String text_day; // 白天天气现象文字
 	private Integer code_day; // 白天天气现象代码

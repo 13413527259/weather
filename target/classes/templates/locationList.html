@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<p th:text="${result.status}" />
+	<p th:text="${result.message}" />
+	<table>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+			<th>path</th>
+		</tr>
+		<tr th:each="item : ${result.data}">
+			<td><a href="#" th:href="@{/daily/{location}(location=${item.id})}">搜索</a></td>
+			<td th:text="${item.name}">2.41</td>
+			<td th:text="${item.path}">yes</td>
+		</tr>
+	</table>
+</body>
+</html>

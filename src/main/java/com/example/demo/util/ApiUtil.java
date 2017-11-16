@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class HttpUtil {
+public class ApiUtil {
 	
 	private static String WEATHER_URL = "https://api.seniverse.com/v3/weather/daily.json";
 	
@@ -21,7 +21,7 @@ public class HttpUtil {
 	 * @param location
 	 * 要查询的城市
 	 * @return
-	 * 天气日报JSON
+	 * 封装的API
 	 * @throws Exception
 	 */
 	public static String getWeatherDailyURL(String location) throws Exception {
@@ -29,21 +29,42 @@ public class HttpUtil {
 		String result=WEATHER_URL+"?key="+API_KEY+"&location="+encode;
 		return result;
 	}
-	
+	/**
+	 * 查询城市
+	 * @param location
+	 * 要查询城市的关键字：广州/gz/guangzhou
+	 * @return
+	 * 封装的API
+	 * @throws Exception
+	 */
 	public static String getLocationURL(String location) throws Exception {
 		String encode=URLEncoder.encode(location, "utf-8");
 		String result=LOCATION_URL+"?key="+API_KEY+"&q="+encode;
 		return result;
 	}
-	
+	/**
+	 * 查询生活指数
+	 * @param location
+	 * 要查询的城市
+	 * @return
+	 * 封装的API
+	 * @throws Exception
+	 */
 	public static String getLifeURL(String location) throws Exception {
 		String encode=URLEncoder.encode(location, "utf-8");
 		String result=LIFE_URL+"?key="+API_KEY+"&location="+encode;
 		return result;
 	}
-	
-	public static String getContent(String path) throws Exception {
-		URL url = new URL(path);
+	/**
+	 * 根据API获取内容
+	 * @param api
+	 * 要查询的API
+	 * @return
+	 * 结果集
+	 * @throws Exception
+	 */
+	public static String getContent(String api) throws Exception {
+		URL url = new URL(api);
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
         conn.setConnectTimeout(5000);
@@ -54,14 +75,7 @@ public class HttpUtil {
 		while ((line=br.readLine())!=null) {
 			result.append(line);
 		}
-		System.out.println(result);
 		return result.toString();
-	}
-	
-	public static void main(String[] args) throws Exception {
-//		HttpUtil.getContent(HttpUtil.getWeatherDailyURL("广州"));
-//		HttpUtil.getContent(HttpUtil.getLocationURL("gz"));
-		getContent(getLifeURL("广州"));
 	}
 
 }

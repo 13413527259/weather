@@ -11,7 +11,7 @@ public class Result<T> {
 
 	@Override
 	public String toString() {
-		return "Result [status=" + status + ", message=" + message + ", date=" + data + "]";
+		return "Result [status=" + status + ", message=" + message + ", data=" + data + "]";
 	}
 
 	/** 错误码 */
@@ -19,7 +19,7 @@ public class Result<T> {
 	/** 错误信息 */
 	private String message;
 	/** 具体内容 */
-	private T data;
+	public T data;
 
 	public Integer getStatus() {
 		return status;
@@ -41,8 +41,8 @@ public class Result<T> {
 		return data;
 	}
 
-	public void setDate(T date) {
-		this.data = date;
+	public void setDate(T data) {
+		this.data = data;
 	}
 
 	public Result() {

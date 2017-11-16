@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<p th:text="${result.status}" />
+	<p th:text="${result.message}" />
+	<table border="1">
+		<tr>
+			<th>时间</th>
+			<th>白天</th>
+			<th>夜间</th>
+			<th>最高温度</th>
+			<th>最低温度</th>
+			<th>precip</th>
+			<th>风向</th>
+			<th>wind_direction_degree</th>
+			<th>风速</th>
+			<th>风力等级</th>
+		</tr>
+		<tr th:each="item : ${result.data}">
+			<td th:text="${item.date}"></td>
+			<td th:text="${item.text_day}"></td>
+			<td th:text="${item.text_night}"></td>
+			<td th:text="${item.high}"></td>
+			<td th:text="${item.low}"></td>
+			<td th:text="${item.precip}"></td>
+			<td th:text="${item.wind_direction}"></td>
+			<td th:text="${item.wind_direction_degree}"></td>
+			<td th:text="${item.wind_speed}"></td>
+			<td th:text="${item.wind_scale}"></td>
+		</tr>
+	</table>
+</body>
+</html>
