@@ -69,7 +69,14 @@ public class ApiUtil {
 		conn.setRequestMethod("GET");
         conn.setConnectTimeout(5000);
         conn.setReadTimeout(5000);
-		BufferedReader br=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        conn.connect();
+        BufferedReader br=null;
+        if (conn.getResponseCode()!=HttpURLConnection.HTTP_OK) {
+//        	throw new Exception("获取内容时发生错误");
+        	br=new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+		}else {
+			br=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		}
 		StringBuffer result =new StringBuffer();
 		String line="";
 		while ((line=br.readLine())!=null) {

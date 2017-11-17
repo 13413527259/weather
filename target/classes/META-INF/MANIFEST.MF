@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: weather
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: 13413527259
+Built-By: sunmnet-developer
 Implementation-Vendor-Id: com.example
-Build-Jdk: 1.8.0_152
+Build-Jdk: 1.8.0_131
 Implementation-URL: http://projects.spring.io/spring-boot/weather/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
